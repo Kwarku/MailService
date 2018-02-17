@@ -1,13 +1,17 @@
 package pl.narodzinyprogramisty;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+public class App {
+    public static void main(String[] args) {
+        EmailBox emailBox = new EmailBox();
+        EmailService emailService = new EmailService();
+
+
+        emailBox.addMail(MailUtils.createTempMail());
+        emailBox.addMail(MailUtils.createTempMail());
+        emailBox.addMail(MailUtils.createTempMail());
+
+        emailService.startService();
+        emailService.run();
+        emailService.stopService();
     }
 }
